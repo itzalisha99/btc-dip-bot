@@ -57,8 +57,10 @@ const MAX_HOLD_BARS = 480;
 const COOLDOWN_BARS = 60;
 // Slippage caps: a buy refused if the next open is more than this above
 // the close it was decided on; a sell refused if it is more than this below.
+// The sell cap is wider than the buy cap: in a fast fall the bot must be
+// able to get out, while a buy that gaps up can simply wait for the next bar.
 const BUY_SLIPPAGE_BPS = 150;
-const SELL_SLIPPAGE_BPS = 200;
+const SELL_SLIPPAGE_BPS = 250;
 
 // Closes seen so far, in bar order, as plain numbers (price-scale units).
 const closes: number[] = [];
